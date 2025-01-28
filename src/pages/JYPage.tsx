@@ -40,7 +40,7 @@ export default function JYPage() {
   useEffect(() => {
     if (phase === 'intro' && introStep < introTexts.length) {
       const timer = setTimeout(() => {
-        setIntroStep(prev => prev + 1);
+        setIntroStep((prev) => prev + 1);
       }, 2300);
       return () => clearTimeout(timer);
     }
@@ -52,7 +52,7 @@ export default function JYPage() {
   useEffect(() => {
     if (phase === 'game' && gauge > 0 && gauge < 100) {
       const timer = setInterval(() => {
-        setGauge(prev => Math.max(0, prev - 0.5));
+        setGauge((prev) => Math.max(0, prev - 0.5));
       }, 200);
       return () => clearInterval(timer);
     }
@@ -85,12 +85,12 @@ export default function JYPage() {
       size: getRandomSize(), // 랜덤 크기 추가
     };
 
-    setHearts(prev => [...prev, newHeart]);
+    setHearts((prev) => [...prev, newHeart]);
     const newGauge = Math.min(100, gauge + 2);
     setGauge(newGauge);
 
     setTimeout(() => {
-      setHearts(prev => prev.filter(heart => heart.id !== newHeart.id));
+      setHearts((prev) => prev.filter((heart) => heart.id !== newHeart.id));
     }, 1000);
 
     if (newGauge >= 98 && !showEffect) {
@@ -102,7 +102,10 @@ export default function JYPage() {
   if (phase === 'intro') {
     return (
       <div className='min-h-screen bg-rose-400 flex w-full items-center justify-center'>
-        <div key={introStep} className='text-white text-2xl text-center animate-fade-in-out whitespace-pre-line'>
+        <div
+          key={introStep}
+          className='text-white text-2xl text-center animate-fade-in-out whitespace-pre-line'
+        >
           {introTexts[introStep]}
         </div>
       </div>
@@ -137,7 +140,7 @@ export default function JYPage() {
             className={`w-80 h-80 object-cover rounded-[20px] transition-all duration-500
               ${showEffect ? 'animate-spin-glow' : ''}`}
           />
-          {hearts.map(heart => (
+          {hearts.map((heart) => (
             <img
               key={heart.id}
               src='/icons/heart.svg'

@@ -200,7 +200,9 @@ button:focus-visible {
 }
 
 /* 확대/축소 방지를 위한 스타일 수정 */
-html, body, #root {
+html,
+body,
+#root {
   touch-action: none;
   -ms-touch-action: none;
   overflow: hidden;
