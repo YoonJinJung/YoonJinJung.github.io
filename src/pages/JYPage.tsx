@@ -37,6 +37,40 @@ export default function JYPage() {
     }
   };
 
+  // Preload 이미지 함수 추가
+  const preloadImages = async () => {
+    const imageUrls = [
+      '/icons/heart.svg',
+      '/jy1.jpeg',
+      '/jy2.jpeg',
+      '/jy3.jpeg',
+      '/jy4.jpeg',
+    ];
+
+    const loadImage = (url: string): Promise<void> => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = url;
+        img.onload = () => resolve();
+        img.onerror = () => reject();
+      });
+    };
+
+    try {
+      await Promise.all(imageUrls.map(loadImage));
+      console.log('JY 이미지 모두 로드 완료');
+    } catch (error) {
+      console.error('이미지 로드 중 에러:', error);
+    }
+  };
+
+  // intro 단계에서 이미지 preload
+  useEffect(() => {
+    if (phase === 'intro') {
+      preloadImages();
+    }
+  }, [phase]);
+
   useEffect(() => {
     if (phase === 'intro' && introStep < introTexts.length) {
       const timer = setTimeout(() => {

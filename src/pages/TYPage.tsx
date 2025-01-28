@@ -35,6 +35,39 @@ export default function TYPage() {
     }
   };
 
+  // Preload 이미지 함수 추가
+  const preloadImages = async () => {
+    const imageUrls = [
+      '/icons/heart.svg',
+      '/ty1.jpeg',
+      '/ty2.jpeg',
+      '/ty3.jpeg',
+    ];
+
+    const loadImage = (url: string): Promise<void> => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = url;
+        img.onload = () => resolve();
+        img.onerror = () => reject();
+      });
+    };
+
+    try {
+      await Promise.all(imageUrls.map(loadImage));
+      console.log('TY 이미지 모두 로드 완료');
+    } catch (error) {
+      console.error('이미지 로드 중 에러:', error);
+    }
+  };
+
+  // intro 단계에서 이미지 preload
+  useEffect(() => {
+    if (phase === 'intro') {
+      preloadImages();
+    }
+  }, [phase]);
+
   useEffect(() => {
     if (phase === 'intro' && introStep < introTexts.length) {
       const timer = setTimeout(() => {
