@@ -26,7 +26,7 @@ export default function JYPage() {
 
   // 게이지 단계에 따른 텍스트와 이미지 버전 결정을 4단계로 수정
   const getStageInfo = (gaugeValue: number) => {
-    if (gaugeValue >= 98) {
+    if (gaugeValue >= 100) {
       return { text: '우히히 새해복마니받으대요!!', imageVersion: 4 };
     } else if (gaugeValue >= 70) {
       return { text: '오잉? 저건뭐지?', imageVersion: 3 };
@@ -84,7 +84,7 @@ export default function JYPage() {
   }, [introStep, phase, introTexts.length]);
 
   useEffect(() => {
-    if (phase === 'game' && gauge > 0 && gauge < 98) {
+    if (phase === 'game' && gauge > 0 && gauge <100) {
       const timer = setInterval(() => {
         setGauge((prev) => Math.max(0, prev - 0.5));
       }, 200);
@@ -127,7 +127,7 @@ export default function JYPage() {
       setHearts((prev) => prev.filter((heart) => heart.id !== newHeart.id));
     }, 1000);
 
-    if (newGauge >= 98 && !showEffect) {
+    if (newGauge >= 100 && !showEffect) {
       setShowEffect(true);
       setTimeout(() => setShowEffect(false), 5000);
     }
@@ -191,7 +191,7 @@ export default function JYPage() {
         </div>
 
         {/* 뒤로가기 버튼 - 게이지가 98 이상일 때만 표시 */}
-        {gauge >= 98 && (
+        {gauge >= 100 && (
           <button
             onClick={() => navigate('/')}
             className='absolute -bottom-16 left-1/2 transform -translate-x-1/2 

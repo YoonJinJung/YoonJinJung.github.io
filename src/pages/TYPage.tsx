@@ -26,7 +26,7 @@ export default function TYPage() {
 
   // 게이지 단계에 따른 텍스트와 이미지 버전 결정
   const getStageInfo = (gaugeValue: number) => {
-    if (gaugeValue >= 98) {
+    if (gaugeValue >= 100) {
       return { text: '탈출했지롱~', imageVersion: 3 };
     } else if (gaugeValue >= 50) {
       return { text: '이얍! 조금만 더!', imageVersion: 2 };
@@ -81,7 +81,7 @@ export default function TYPage() {
   }, [introStep, phase, introTexts.length]);
 
   useEffect(() => {
-    if (phase === 'game' && gauge > 0 && gauge < 98) {
+    if (phase === 'game' && gauge > 0 && gauge < 100) {
       const timer = setInterval(() => {
         setGauge((prev) => Math.max(0, prev - 0.5));
       }, 400);
@@ -124,7 +124,7 @@ export default function TYPage() {
       setHearts((prev) => prev.filter((heart) => heart.id !== newHeart.id));
     }, 1000);
 
-    if (newGauge >= 98 && !showEffect) {
+    if (newGauge >= 100 && !showEffect) {
       setShowEffect(true);
       setTimeout(() => setShowEffect(false), 5000);
     }
@@ -188,7 +188,7 @@ export default function TYPage() {
         </div>
 
         {/* 뒤로가기 버튼 - 게이지가 98 이상일 때만 표시 */}
-        {gauge >= 98 && (
+        {gauge >= 100 && (
           <button
             onClick={() => navigate('/')}
             className='absolute -bottom-16 left-1/2 transform -translate-x-1/2 
