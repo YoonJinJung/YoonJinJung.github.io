@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: ['class'],
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}', // 이 부분이 중요합니다!
@@ -8,20 +9,60 @@ export default {
     extend: {
       colors: {
         blue: {
-          600: '#2563eb', // 체험수업 신청 버튼 기본 색상
-          700: '#1d4ed8', // 호버 시 색상
+          600: '#2563eb',
+          700: '#1d4ed8',
         },
-        primary: '#343A40',
-        secondary: '#007BFF',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
         black: '#090909',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        chart: {
+          1: 'hsl(var(--chart-1))',
+          2: 'hsl(var(--chart-2))',
+          3: 'hsl(var(--chart-3))',
+          4: 'hsl(var(--chart-4))',
+          5: 'hsl(var(--chart-5))',
+        },
       },
       spacing: {
         2: '0.5rem',
-        4: '1rem', // p-4에 사용
-        6: '1.5rem', // px-6에 사용
+        4: '1rem',
+        6: '1.5rem',
       },
       borderRadius: {
-        lg: '0.5rem', // rounded-lg에 사용
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
       transitionProperty: {
         colors: 'background-color, border-color, color, fill, stroke',
@@ -30,9 +71,9 @@ export default {
         200: '200ms',
       },
       screens: {
-        md: '768px', // md: 반응형 브레이크포인트
+        md: '768px',
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate')],
 };
