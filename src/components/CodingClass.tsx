@@ -316,9 +316,13 @@ export default function CodingClass() {
               <div className='bg-gradient-to-br from-blue-900 to-blue-950 rounded-2xl p-8 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20'>
                 <div className='flex items-center justify-between mb-6'>
                   <div>
-                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>First Lego League</h3>
+                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>
+                      First Lego League
+                    </h3>
                     <div className='inline-block px-3 py-1 bg-blue-500/20 rounded-full'>
-                      <p className='text-blue-200 text-sm'>Outstanding Engineering</p>
+                      <p className='text-blue-200 text-sm'>
+                        Outstanding Engineering
+                      </p>
                     </div>
                   </div>
                   <div className='text-3xl text-yellow-400'>🏆</div>
@@ -339,7 +343,9 @@ export default function CodingClass() {
               <div className='bg-gradient-to-br from-blue-900 to-blue-950 rounded-2xl p-8 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20'>
                 <div className='flex items-center justify-between mb-6'>
                   <div>
-                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>K-로봇대회</h3>
+                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>
+                      K-로봇대회
+                    </h3>
                     <div className='inline-block px-3 py-1 bg-blue-500/20 rounded-full'>
                       <p className='text-blue-200 text-sm'>광운대 총장상</p>
                     </div>
@@ -358,7 +364,9 @@ export default function CodingClass() {
               <div className='bg-gradient-to-br from-blue-900 to-blue-950 rounded-2xl p-8 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20'>
                 <div className='flex items-center justify-between mb-6'>
                   <div>
-                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>ROBOTEX ASIA</h3>
+                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>
+                      ROBOTEX ASIA
+                    </h3>
                     <div className='inline-block px-3 py-1 bg-blue-500/20 rounded-full'>
                       <p className='text-blue-200 text-sm'>1KG 부문 우승</p>
                     </div>
@@ -376,7 +384,9 @@ export default function CodingClass() {
               <div className='bg-gradient-to-br from-blue-900 to-blue-950 rounded-2xl p-8 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20'>
                 <div className='flex items-center justify-between mb-6'>
                   <div>
-                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>ROBOTEX ASIA</h3>
+                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>
+                      ROBOTEX ASIA
+                    </h3>
                     <div className='inline-block px-3 py-1 bg-blue-500/20 rounded-full'>
                       <p className='text-blue-200 text-sm'>3KG 부문 우승</p>
                     </div>
@@ -394,7 +404,9 @@ export default function CodingClass() {
               <div className='bg-gradient-to-br from-blue-900 to-blue-950 rounded-2xl p-8 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20'>
                 <div className='flex items-center justify-between mb-6'>
                   <div>
-                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>IT 코딩 발명대회</h3>
+                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>
+                      IT 코딩 발명대회
+                    </h3>
                     <div className='inline-block px-3 py-1 bg-blue-500/20 rounded-full'>
                       <p className='text-blue-200 text-sm'>은상</p>
                     </div>
