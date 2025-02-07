@@ -84,7 +84,7 @@ export default function JYPage() {
   }, [introStep, phase, introTexts.length]);
 
   useEffect(() => {
-    if (phase === 'game' && gauge > 0 && gauge <100) {
+    if (phase === 'game' && gauge > 0 && gauge < 100) {
       const timer = setInterval(() => {
         setGauge((prev) => Math.max(0, prev - 0.5));
       }, 200);
