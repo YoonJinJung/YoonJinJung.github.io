@@ -74,41 +74,72 @@ export default function CodingClass() {
           </p>
 
           {/* 특징 섹션 */}
-          <section className='grid md:grid-cols-3 gap-6 mt-16 mb-12'>
-            <div className='border border-white backdrop-blur-md p-6 rounded-2xl shadow-md text-left'>
-              <h3 className='text-lg font-semibold mb-3 text-white'>
-                체계적인 커리큘럼
-              </h3>
-              <p className='text-gray-300'>
-                6세~고등학생
-                <br />
-                Lego Education 기반 과정부터
-                <br />
-                대입을 위한 포트폴리오까지
-                <br />
-                체계적인 교육과정을 제공합니다.
-              </p>
+          <section className='grid md:grid-cols-3 gap-8 mt-16 mb-12'>
+            <div className='group hover:transform hover:scale-105 transition-all duration-300'>
+              <div className='bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/20 shadow-xl hover:shadow-white/20'>
+                <div className='flex items-center justify-between mb-6'>
+                  <h3 className='text-2xl font-bold text-blue-100'>
+                    체계적인 커리큘럼
+                  </h3>
+                  <div className='text-3xl'>📚</div>
+                </div>
+                <div className='space-y-3'>
+                  <div className='inline-block px-3 py-1 bg-white/10 rounded-full mb-4'>
+                    <p className='text-blue-200 text-sm'>6세 ~ 고등학생</p>
+                  </div>
+                  <p className='text-gray-300 leading-relaxed'>
+                    Lego Education 기반 과정부터
+                    <br />
+                    대입을 위한 포트폴리오까지
+                    <br />
+                    체계적인 교육과정을 제공합니다.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className='border border-white backdrop-blur-md p-6 rounded-2xl shadow-md text-left'>
-              <h3 className='text-lg font-semibold mb-3 text-white'>
-                최적의 강사진
-              </h3>
-              <p className='text-gray-300'>
-                전부 공학 전공의 강사로 구성되어
-                <br />
-                전문적인 교육이 가능합니다.
-              </p>
+
+            <div className='group hover:transform hover:scale-105 transition-all duration-300'>
+              <div className='bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/20 shadow-xl hover:shadow-white/20'>
+                <div className='flex items-center justify-between mb-6'>
+                  <h3 className='text-2xl font-bold text-blue-100'>
+                    최적의 강사진
+                  </h3>
+                  <div className='text-3xl'>👨‍🏫</div>
+                </div>
+                <div className='space-y-3'>
+                  <div className='inline-block px-3 py-1 bg-white/10 rounded-full mb-4'>
+                    <p className='text-blue-200 text-sm'>전문성 보장</p>
+                  </div>
+                  <p className='text-gray-300 leading-relaxed'>
+                    전부 공학 전공의 강사로 구성되어
+                    <br />
+                    전문적인 교육이 가능합니다.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className='border border-white backdrop-blur-md p-6 rounded-2xl shadow-md text-left'>
-              <h3 className='text-lg font-semibold mb-3 text-white'>
-                최고의 성과
-              </h3>
-              <p className='text-gray-300'>
-                FLL, 로보텍스 코리아 등<br />
-                대회 수상 내역은
-                <br />
-                스타랩의 교육 성과를 증명합니다.
-              </p>
+
+            <div className='group hover:transform hover:scale-105 transition-all duration-300'>
+              <div className='bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/20 shadow-xl hover:shadow-white/20'>
+                <div className='flex items-center justify-between mb-6'>
+                  <h3 className='text-2xl font-bold text-blue-100'>
+                    최고의 성과
+                  </h3>
+                  <div className='text-3xl'>🏆</div>
+                </div>
+                <div className='space-y-3'>
+                  <div className='inline-block px-3 py-1 bg-white/10 rounded-full mb-4'>
+                    <p className='text-blue-200 text-sm'>다수의 수상실적</p>
+                  </div>
+                  <p className='text-gray-300 leading-relaxed'>
+                    FLL, 로보텍스 코리아 등
+                    <br />
+                    대회 수상 내역은
+                    <br />
+                    스타랩의 교육 성과를 증명합니다.
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
         </div>
@@ -139,7 +170,7 @@ export default function CodingClass() {
           </p>
 
           {/* 타임라인 컨테이너 */}
-          <div className='relative mt-16 ml-10'>
+          <div className='relative mt-16 ml-4'>
             {/* 왼쪽에 수직 타임라인 선 */}
             <div className='absolute left-4 top-1 bottom-0 w-1 bg-gray-400'></div>
 
@@ -154,15 +185,17 @@ export default function CodingClass() {
                     <div className='w-[13px] h-[13px] bg-gray-400 rounded-full'></div>
                   </div>
                 </div>
-                <div className='p-6 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
+                <div className='p-6 mr-2 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
                   <h3 className='text-lg text-blue-600 font-semibold mb-2'>
                     6-7세
                   </h3>
                   <p className='text-gray-700 font-bold text-[18px] mb-2'>
-                    INNOVATOR | BrickQ
+                    INNOVATOR • BrickQ
                   </p>
                   <p className='text-gray-500 text-[11px]'>
-                    물체의 힘과 운동을 직접 탐구하며 실험적 사고력을 키우고
+                    물체의 힘과 운동을 직접 탐구하며
+                    <br />
+                    실험적 사고력을 키우고
                     <br />
                     기초 공학 지식을 자연스럽게 체득하는 과정
                   </p>
@@ -176,7 +209,7 @@ export default function CodingClass() {
                     <div className='w-[13px] h-[13px] bg-gray-400 rounded-full'></div>
                   </div>
                 </div>
-                <div className='p-6 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
+                <div className='p-6 mr-2 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
                   <h3 className='text-lg text-blue-600 font-semibold mb-2'>
                     초 1-2
                   </h3>
@@ -184,7 +217,9 @@ export default function CodingClass() {
                     Spike Essential
                   </p>
                   <p className='text-gray-500 text-[11px]'>
-                    실용적인 로봇/코딩 교육으로 창의력과 논리력을 키우고
+                    실용적인 로봇/코딩 교육으로
+                    <br />
+                    창의력과 논리력을 키우고
                     <br />
                     모든 학습의 성공 기반을 만드는 과정
                   </p>
@@ -198,7 +233,7 @@ export default function CodingClass() {
                     <div className='w-[13px] h-[13px] bg-gray-400 rounded-full'></div>
                   </div>
                 </div>
-                <div className='p-6 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
+                <div className='p-6 mr-2 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
                   <h3 className='text-lg text-blue-600 font-semibold mb-2'>
                     초 3-5
                   </h3>
@@ -208,7 +243,7 @@ export default function CodingClass() {
                   <p className='text-gray-500 text-[11px]'>
                     복잡한 로봇 설계와 알고리즘을 학습하고
                     <br />
-                    창의적인 문제 해결 능력과 실전 응용력을 키우는 과정
+                    문제 해결 능력과 실전 응용력을 키우는 과정
                   </p>
                 </div>
               </div>
@@ -220,7 +255,7 @@ export default function CodingClass() {
                     <div className='w-[13px] h-[13px] bg-gray-400 rounded-full'></div>
                   </div>
                 </div>
-                <div className='p-6 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
+                <div className='p-6 mr-2 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
                   <h3 className='text-lg text-blue-600 font-semibold mb-2'>
                     초 6
                   </h3>
@@ -230,7 +265,7 @@ export default function CodingClass() {
                   <p className='text-gray-500 text-[11px]'>
                     블록 코딩에서 파이썬 코딩으로 전환하며
                     <br />
-                    본격적인 프로그래밍 언어와 S/W 개발 능력을 키우는 과정
+                    본격적인 S/W 개발 능력을 키우는 과정
                   </p>
                 </div>
               </div>
@@ -242,7 +277,7 @@ export default function CodingClass() {
                     <div className='w-[13px] h-[13px] bg-gray-400 rounded-full'></div>
                   </div>
                 </div>
-                <div className='p-6 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
+                <div className='p-6 mr-2 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
                   <h3 className='text-lg text-blue-600 font-semibold mb-2'>
                     중-고등
                   </h3>
@@ -252,8 +287,9 @@ export default function CodingClass() {
                   <p className='text-gray-500 text-[11px]'>
                     다양한 프로그래밍 언어 학습과 프로젝트 진행을 통해
                     <br />
-                    대입을 위한 포트폴리오를 만들어 S/W특기자 전형을 준비하는
-                    과정
+                    대입을 위한 포트폴리오를 만들고
+                    <br />
+                    S/W특기자 전형을 준비하는 과정
                   </p>
                 </div>
               </div>
@@ -262,146 +298,111 @@ export default function CodingClass() {
         </div>
       </div>
 
-      <div className='bg-gradient-to-b from-gray-300 to-blue-500 py-12'>
-        <div className='max-w-4xl mx-auto'>
-          <h2 className='text-[16px] font-medium mb-6 text-gray-500 text-center'>
-            왜{' '}
-            <span className='text-blue-600 text-[22px] font-bold'>
-              스타랩 수원
-            </span>
-            을 선택해야 할까요?
-          </h2>
-          <p className='text-[32px] font-bold text-gray-500 text-center'>
-            <span className='text-blue-600 font-bold'>6세부터 대입</span>까지
-          </p>
-          <p className='text-[32px] font-bold text-gray-500 mb-16 text-center'>
-            체계적인 커리큘럼
-          </p>
-          <p className='text-[18px] font-bold text-gray-500 text-center'>
-            Lego Education 기반 과정부터
-            <br />
-            대입을 위한 포트폴리오까지
-            <br />
-            체계적인 교육과정을 제공합니다.
-          </p>
+      {/* 세 번째 섹션: 수상내역 */}
+      <div className='bg-gradient-to-b from-blue-600 via-blue-800 to-black py-20'>
+        <div className='max-w-6xl mx-auto px-6'>
+          <div className='text-center mb-16'>
+            <h2 className='text-4xl font-bold text-white mb-4'>
+              2024 수상실적
+            </h2>
+            <p className='text-blue-200 text-lg'>
+              스타랩 수원의 학생들이 이뤄낸 놀라운 성과들
+            </p>
+          </div>
 
-          {/* 타임라인 컨테이너 */}
-          <div className='relative mt-16 ml-10'>
-            {/* 왼쪽에 수직 타임라인 선 */}
-            <div className='absolute left-4 top-1 bottom-0 w-1 bg-gray-400'></div>
-
-            {/* 타임라인 항목들 */}
-            <div className='space-y-10 ml-10'>
-              {/* 항목: 6-7세 */}
-              <div className='flex'>
-                <div className='relative'>
-                  {/* 바깥쪽 원: 파란색 배경, 두꺼운 테두리 역할 (두께 약 4px) */}
-                  <div className='w-[21px] h-[21px] rounded-full flex items-center justify-center absolute left-[-2.03rem] bg-blue-500'>
-                    {/* 안쪽 원: 기존 회색 점 */}
-                    <div className='w-[13px] h-[13px] bg-gray-400 rounded-full'></div>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            {/* FLL Awards */}
+            <div className='group hover:transform hover:scale-105 transition-all duration-300'>
+              <div className='bg-gradient-to-br from-blue-900 to-blue-950 rounded-2xl p-8 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20'>
+                <div className='flex items-center justify-between mb-6'>
+                  <div>
+                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>First Lego League</h3>
+                    <div className='inline-block px-3 py-1 bg-blue-500/20 rounded-full'>
+                      <p className='text-blue-200 text-sm'>Outstanding Engineering</p>
+                    </div>
                   </div>
+                  <div className='text-3xl text-yellow-400'>🏆</div>
                 </div>
-                <div className='p-6 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
-                  <h3 className='text-lg text-blue-600 font-semibold mb-2'>
-                    6-7세
-                  </h3>
-                  <p className='text-gray-700 font-bold text-[18px] mb-2'>
-                    INNOVATOR | BrickQ
+                <div className='space-y-3'>
+                  <p className='text-blue-200 text-sm'>
+                    지O승 · 최O재 · 김O윤 · 송O훈
                   </p>
-                  <p className='text-gray-500 text-[11px]'>
-                    물체의 힘과 운동을 직접 탐구하며 실험적 사고력을 키우고
-                    <br />
-                    기초 공학 지식을 자연스럽게 체득하는 과정
+                  <p className='text-blue-200 text-sm'>
+                    채O훈 · 양O영 · 이O빈 · 조O율
                   </p>
                 </div>
               </div>
+            </div>
 
-              {/* 항목: 초 1-2 */}
-              <div className='flex'>
-                <div className='relative'>
-                  <div className='w-[21px] h-[21px] rounded-full flex items-center justify-center absolute left-[-2.03rem] bg-blue-500'>
-                    <div className='w-[13px] h-[13px] bg-gray-400 rounded-full'></div>
+            {/* K-로봇대회 */}
+            <div className='group hover:transform hover:scale-105 transition-all duration-300'>
+              <div className='bg-gradient-to-br from-blue-900 to-blue-950 rounded-2xl p-8 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20'>
+                <div className='flex items-center justify-between mb-6'>
+                  <div>
+                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>K-로봇대회</h3>
+                    <div className='inline-block px-3 py-1 bg-blue-500/20 rounded-full'>
+                      <p className='text-blue-200 text-sm'>광운대 총장상</p>
+                    </div>
                   </div>
+                  <div className='text-3xl text-yellow-400'>🤖</div>
                 </div>
-                <div className='p-6 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
-                  <h3 className='text-lg text-blue-600 font-semibold mb-2'>
-                    초 1-2
-                  </h3>
-                  <p className='text-gray-700 font-bold text-[18px] mb-2'>
-                    Spike Essential
-                  </p>
-                  <p className='text-gray-500 text-[11px]'>
-                    실용적인 로봇/코딩 교육으로 창의력과 논리력을 키우고
-                    <br />
-                    모든 학습의 성공 기반을 만드는 과정
-                  </p>
+                <div className='space-y-2'>
+                  <p className='text-blue-200 text-sm'>라인트레이싱 부문</p>
+                  <p className='text-blue-200 font-semibold'>정O우</p>
                 </div>
               </div>
+            </div>
 
-              {/* 항목: 초 3-5 */}
-              <div className='flex'>
-                <div className='relative'>
-                  <div className='w-[21px] h-[21px] rounded-full flex items-center justify-center absolute left-[-2.03rem] bg-blue-500'>
-                    <div className='w-[13px] h-[13px] bg-gray-400 rounded-full'></div>
+            {/* ROBOTEX ASIA 1KG */}
+            <div className='group hover:transform hover:scale-105 transition-all duration-300'>
+              <div className='bg-gradient-to-br from-blue-900 to-blue-950 rounded-2xl p-8 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20'>
+                <div className='flex items-center justify-between mb-6'>
+                  <div>
+                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>ROBOTEX ASIA</h3>
+                    <div className='inline-block px-3 py-1 bg-blue-500/20 rounded-full'>
+                      <p className='text-blue-200 text-sm'>1KG 부문 우승</p>
+                    </div>
                   </div>
+                  <div className='text-3xl text-yellow-400'>🥇</div>
                 </div>
-                <div className='p-6 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
-                  <h3 className='text-lg text-blue-600 font-semibold mb-2'>
-                    초 3-5
-                  </h3>
-                  <p className='text-gray-700 font-bold text-[18px] mb-2'>
-                    Spike Prime
-                  </p>
-                  <p className='text-gray-500 text-[11px]'>
-                    복잡한 로봇 설계와 알고리즘을 학습하고
-                    <br />
-                    창의적인 문제 해결 능력과 실전 응용력을 키우는 과정
-                  </p>
+                <div className='space-y-2'>
+                  <p className='text-blue-200 font-semibold'>채O영</p>
                 </div>
               </div>
+            </div>
 
-              {/* 항목: 초6 */}
-              <div className='flex'>
-                <div className='relative'>
-                  <div className='w-[21px] h-[21px] rounded-full flex items-center justify-center absolute left-[-2.03rem] bg-blue-500'>
-                    <div className='w-[13px] h-[13px] bg-gray-400 rounded-full'></div>
+            {/* ROBOTEX ASIA 3KG */}
+            <div className='group hover:transform hover:scale-105 transition-all duration-300'>
+              <div className='bg-gradient-to-br from-blue-900 to-blue-950 rounded-2xl p-8 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20'>
+                <div className='flex items-center justify-between mb-6'>
+                  <div>
+                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>ROBOTEX ASIA</h3>
+                    <div className='inline-block px-3 py-1 bg-blue-500/20 rounded-full'>
+                      <p className='text-blue-200 text-sm'>3KG 부문 우승</p>
+                    </div>
                   </div>
+                  <div className='text-3xl text-yellow-400'>🥇</div>
                 </div>
-                <div className='p-6 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
-                  <h3 className='text-lg text-blue-600 font-semibold mb-2'>
-                    초6
-                  </h3>
-                  <p className='text-gray-700 font-bold text-[18px] mb-2'>
-                    Python 과정
-                  </p>
-                  <p className='text-gray-500 text-[11px]'>
-                    블록 코딩에서 파이썬 코딩으로 전환하며
-                    <br />
-                    본격적인 프로그래밍 언어와 S/W 개발 능력을 키우는 과정
-                  </p>
+                <div className='space-y-2'>
+                  <p className='text-blue-200 text-sm'>김O구 · 최O원</p>
                 </div>
               </div>
+            </div>
 
-              {/* 항목: 중/고등 */}
-              <div className='flex'>
-                <div className='relative'>
-                  <div className='w-[21px] h-[21px] rounded-full flex items-center justify-center absolute left-[-2.03rem] bg-blue-500'>
-                    <div className='w-[13px] h-[13px] bg-gray-400 rounded-full'></div>
+            {/* IT 코딩 발명대회 */}
+            <div className='group hover:transform hover:scale-105 transition-all duration-300'>
+              <div className='bg-gradient-to-br from-blue-900 to-blue-950 rounded-2xl p-8 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20'>
+                <div className='flex items-center justify-between mb-6'>
+                  <div>
+                    <h3 className='text-2xl font-bold text-blue-100 mb-2'>IT 코딩 발명대회</h3>
+                    <div className='inline-block px-3 py-1 bg-blue-500/20 rounded-full'>
+                      <p className='text-blue-200 text-sm'>은상</p>
+                    </div>
                   </div>
+                  <div className='text-3xl text-yellow-400'>🏅</div>
                 </div>
-                <div className='p-6 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
-                  <h3 className='text-lg text-blue-600 font-semibold mb-2'>
-                    중/고등
-                  </h3>
-                  <p className='text-gray-700 font-bold text-[18px] mb-2'>
-                    대입 준비반
-                  </p>
-                  <p className='text-gray-500 text-[11px]'>
-                    다양한 프로그래밍 언어 학습과 프로젝트 진행을 통해
-                    <br />
-                    대입을 위한 포트폴리오를 만들어 S/W특기자 전형을 준비하는
-                    과정
-                  </p>
+                <div className='space-y-2'>
+                  <p className='text-blue-200 text-sm'>이O혁 · 이O빈 · 채O훈</p>
                 </div>
               </div>
             </div>
