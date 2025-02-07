@@ -5,6 +5,20 @@ export default function CodingClass() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  const images = [
+    '/images/compete1.png',
+    '/images/compete2.png',
+    '/images/compete3.png',
+    '/images/compete4.png',
+    '/images/compete5.png',
+    '/images/compete6.png',
+  ];
+
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -29,6 +43,46 @@ export default function CodingClass() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isDropdownOpen]);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const scroll = () => {
+      if (isDragging) return; // 드래그 중일 때는 자동 스크롤 중지
+
+      slider.scrollLeft += 1; // 천천히 스크롤
+
+      // 끝에 도달하면 처음으로 돌아가기
+      if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+        slider.scrollLeft = 0;
+      }
+    };
+
+    const intervalId = setInterval(scroll, 30); // 30ms마다 1px씩 이동
+
+    return () => clearInterval(intervalId);
+  }, [isDragging]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX - (sliderRef.current?.offsetLeft || 0));
+    setScrollLeft(sliderRef.current?.scrollLeft || 0);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - (sliderRef.current?.offsetLeft || 0);
+    const walk = (x - startX) * 2; // 스크롤 속도 조절
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
 
   return (
     <div className='min-h-screen w-full'>
@@ -74,26 +128,51 @@ export default function CodingClass() {
           </p>
 
           {/* 특징 섹션 */}
-          <section className='grid md:grid-cols-3 gap-8 mt-16 mb-12'>
+          <section className='grid md:grid-cols-2 gap-8 mt-16 mb-12'>
             <div className='group hover:transform hover:scale-105 transition-all duration-300'>
               <div className='bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/20 shadow-xl hover:shadow-white/20'>
                 <div className='flex items-center justify-between mb-6'>
                   <h3 className='text-2xl font-bold text-blue-100'>
-                    체계적인 커리큘럼
+                    코딩을 왜 배워야 할까요?
                   </h3>
-                  <div className='text-3xl'>📚</div>
+                  <div className='text-3xl'>🌟</div>
                 </div>
-                <div className='space-y-3'>
+                <div className='space-y-4'>
                   <div className='inline-block px-3 py-1 bg-white/10 rounded-full mb-4'>
-                    <p className='text-blue-200 text-sm'>6세 ~ 고등학생</p>
+                    <p className='text-blue-200 text-sm'>미래 필수 역량</p>
                   </div>
-                  <p className='text-gray-300 leading-relaxed'>
-                    Lego Education 기반 과정부터
-                    <br />
-                    대입을 위한 포트폴리오까지
-                    <br />
-                    체계적인 교육과정을 제공합니다.
-                  </p>
+                  <div className='space-y-4'>
+                    <div className='flex items-start space-x-3'>
+                      <span className='text-blue-400 mt-1'>✦</span>
+                      <p className='text-gray-300 leading-relaxed'>
+                        <span className='text-blue-300 font-semibold'>
+                          AI 시대의 필수 언어
+                        </span>
+                        <br />
+                        코딩은 더 이상 선택이 아닌 필수입니다
+                      </p>
+                    </div>
+                    <div className='flex items-start space-x-3'>
+                      <span className='text-blue-400 mt-1'>✦</span>
+                      <p className='text-gray-300 leading-relaxed'>
+                        <span className='text-blue-300 font-semibold'>
+                          논리적 사고력 향상
+                        </span>
+                        <br />
+                        문제 해결 능력과 창의력이 자연스럽게 발달합니다
+                      </p>
+                    </div>
+                    <div className='flex items-start space-x-3'>
+                      <span className='text-blue-400 mt-1'>✦</span>
+                      <p className='text-gray-300 leading-relaxed'>
+                        <span className='text-blue-300 font-semibold'>
+                          미래 진로 준비
+                        </span>
+                        <br />
+                        SW 역량은 모든 분야에서 경쟁력이 됩니다
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -102,42 +181,48 @@ export default function CodingClass() {
               <div className='bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/20 shadow-xl hover:shadow-white/20'>
                 <div className='flex items-center justify-between mb-6'>
                   <h3 className='text-2xl font-bold text-blue-100'>
-                    최적의 강사진
+                    로봇/코딩교육은 스타랩에서
                   </h3>
-                  <div className='text-3xl'>👨‍🏫</div>
+                  <div className='text-3xl'>🚀</div>
                 </div>
-                <div className='space-y-3'>
+                <div className='space-y-4'>
                   <div className='inline-block px-3 py-1 bg-white/10 rounded-full mb-4'>
-                    <p className='text-blue-200 text-sm'>전문성 보장</p>
+                    <p className='text-blue-200 text-sm'>
+                      차별화된 교육 시스템
+                    </p>
                   </div>
-                  <p className='text-gray-300 leading-relaxed'>
-                    전부 공학 전공의 강사로 구성되어
-                    <br />
-                    전문적인 교육이 가능합니다.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className='group hover:transform hover:scale-105 transition-all duration-300'>
-              <div className='bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 border border-white/20 shadow-xl hover:shadow-white/20'>
-                <div className='flex items-center justify-between mb-6'>
-                  <h3 className='text-2xl font-bold text-blue-100'>
-                    최고의 성과
-                  </h3>
-                  <div className='text-3xl'>🏆</div>
-                </div>
-                <div className='space-y-3'>
-                  <div className='inline-block px-3 py-1 bg-white/10 rounded-full mb-4'>
-                    <p className='text-blue-200 text-sm'>다수의 수상실적</p>
+                  <div className='space-y-4'>
+                    <div className='flex items-start space-x-3'>
+                      <span className='text-blue-400 mt-1'>✦</span>
+                      <p className='text-gray-300 leading-relaxed'>
+                        <span className='text-blue-300 font-semibold'>
+                          체계적인 커리큘럼
+                        </span>
+                        <br />
+                        6세부터 대입까지 연계된 교육과정
+                      </p>
+                    </div>
+                    <div className='flex items-start space-x-3'>
+                      <span className='text-blue-400 mt-1'>✦</span>
+                      <p className='text-gray-300 leading-relaxed'>
+                        <span className='text-blue-300 font-semibold'>
+                          검증된 강사진
+                        </span>
+                        <br />
+                        전원 공학 전공 출신의 전문 강사진
+                      </p>
+                    </div>
+                    <div className='flex items-start space-x-3'>
+                      <span className='text-blue-400 mt-1'>✦</span>
+                      <p className='text-gray-300 leading-relaxed'>
+                        <span className='text-blue-300 font-semibold'>
+                          우수한 교육 성과
+                        </span>
+                        <br />
+                        FLL, 로보텍스 등 다수의 수상 실적
+                      </p>
+                    </div>
                   </div>
-                  <p className='text-gray-300 leading-relaxed'>
-                    FLL, 로보텍스 코리아 등
-                    <br />
-                    대회 수상 내역은
-                    <br />
-                    스타랩의 교육 성과를 증명합니다.
-                  </p>
                 </div>
               </div>
             </div>
@@ -179,17 +264,15 @@ export default function CodingClass() {
               {/* 항목: 6-7세 */}
               <div className='flex'>
                 <div className='relative'>
-                  {/* 바깥쪽 원: 파란색 배경, 두꺼운 테두리 역할 (두께 약 4px) */}
                   <div className='w-[21px] h-[21px] rounded-full flex items-center justify-center absolute left-[-2.03rem] bg-blue-500'>
-                    {/* 안쪽 원: 기존 회색 점 */}
                     <div className='w-[13px] h-[13px] bg-gray-400 rounded-full'></div>
                   </div>
                 </div>
                 <div className='p-6 mr-2 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
-                  <h3 className='text-lg text-blue-600 font-semibold mb-2'>
-                    6-7세
-                  </h3>
-                  <p className='text-gray-700 font-bold text-[18px] mb-2'>
+                  <div className='inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full mb-2'>
+                    <h3 className='text-[14px] font-semibold'>6-7세</h3>
+                  </div>
+                  <p className='text-gray-700 font-bold text-[20px] mb-2'>
                     INNOVATOR • BrickQ
                   </p>
                   <p className='text-gray-500 text-[11px]'>
@@ -210,10 +293,10 @@ export default function CodingClass() {
                   </div>
                 </div>
                 <div className='p-6 mr-2 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
-                  <h3 className='text-lg text-blue-600 font-semibold mb-2'>
-                    초 1-2
-                  </h3>
-                  <p className='text-gray-700 font-bold text-[18px] mb-2'>
+                  <div className='inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full mb-2'>
+                    <h3 className='text-[14px] font-semibold'>초 1-2</h3>
+                  </div>
+                  <p className='text-gray-700 font-bold text-[20px] mb-2'>
                     Spike Essential
                   </p>
                   <p className='text-gray-500 text-[11px]'>
@@ -234,10 +317,10 @@ export default function CodingClass() {
                   </div>
                 </div>
                 <div className='p-6 mr-2 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
-                  <h3 className='text-lg text-blue-600 font-semibold mb-2'>
-                    초 3-5
-                  </h3>
-                  <p className='text-gray-700 font-bold text-[18px] mb-2'>
+                  <div className='inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full mb-2'>
+                    <h3 className='text-[14px] font-semibold'>초 3-5</h3>
+                  </div>
+                  <p className='text-gray-700 font-bold text-[20px] mb-2'>
                     Spike Prime
                   </p>
                   <p className='text-gray-500 text-[11px]'>
@@ -256,10 +339,10 @@ export default function CodingClass() {
                   </div>
                 </div>
                 <div className='p-6 mr-2 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
-                  <h3 className='text-lg text-blue-600 font-semibold mb-2'>
-                    초 6
-                  </h3>
-                  <p className='text-gray-700 font-bold text-[18px] mb-2'>
+                  <div className='inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full mb-2'>
+                    <h3 className='text-[14px] font-semibold'>초 6</h3>
+                  </div>
+                  <p className='text-gray-700 font-bold text-[20px] mb-2'>
                     Python 과정
                   </p>
                   <p className='text-gray-500 text-[11px]'>
@@ -278,12 +361,37 @@ export default function CodingClass() {
                   </div>
                 </div>
                 <div className='p-6 mr-2 bg-white rounded-lg border border-gray-200 shadow-md ml-2'>
-                  <h3 className='text-lg text-blue-600 font-semibold mb-2'>
-                    중-고등
-                  </h3>
-                  <p className='text-gray-700 font-bold text-[18px] mb-2'>
+                  <div className='inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full mb-2'>
+                    <h3 className='text-[14px] font-semibold'>중-고등</h3>
+                  </div>
+                  <p className='text-gray-700 font-bold text-[20px] mb-2'>
                     대입 준비반
                   </p>
+                  <div className='flex flex-wrap gap-2 mb-3'>
+                    <span className='px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-xs'>
+                      Python
+                    </span>
+                    <span className='px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-xs'>
+                      C
+                    </span>
+                    <span className='px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-xs'>
+                      아두이노
+                    </span>
+                    <span className='px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-xs'>
+                      자료구조&알고리즘
+                    </span>
+                    <span className='px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-xs'>
+                      웹개발
+                    </span>
+                  </div>
+                  <div className='flex flex-wrap gap-2 mb-3'>
+                    <span className='px-2 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium'>
+                      AI 프로젝트
+                    </span>
+                    <span className='px-2 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium'>
+                      해커톤
+                    </span>
+                  </div>
                   <p className='text-gray-500 text-[11px]'>
                     다양한 프로그래밍 언어 학습과 프로젝트 진행을 통해
                     <br />
@@ -299,17 +407,40 @@ export default function CodingClass() {
       </div>
 
       {/* 세 번째 섹션: 수상내역 */}
-      <div className='bg-gradient-to-b from-blue-600 via-blue-800 to-black py-20'>
+      <div className='bg-gradient-to-b from-blue-600 via-blue-800 to-black pb-20'>
+        {/* 수상 관련 사진들 슬라이드 */}
+        <div className='w-full overflow-hidden mb-16 bg-black py-10'>
+          <div
+            ref={sliderRef}
+            className='flex whitespace-nowrap overflow-x-hidden cursor-grab active:cursor-grabbing'
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onMouseMove={handleMouseMove}
+          >
+            {/* 이미지 두 번 반복하여 무한 슬라이드 효과 */}
+            {[...images, ...images].map((src, index) => (
+              <img
+                key={index}
+                src={src}
+                alt={`수상 사진 ${index + 1}`}
+                className='h-[200px] inline-block object-cover'
+                draggable='false'
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* 기존 수상내역 카드들 */}
         <div className='max-w-6xl mx-auto px-6'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl font-bold text-white mb-4'>
-              2024 수상실적
+              2024 대회 수상 실적
             </h2>
             <p className='text-blue-200 text-lg'>
               스타랩 수원의 학생들이 이뤄낸 놀라운 성과들
             </p>
           </div>
-
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {/* FLL Awards */}
             <div className='group hover:transform hover:scale-105 transition-all duration-300'>
@@ -325,7 +456,11 @@ export default function CodingClass() {
                       </p>
                     </div>
                   </div>
-                  <div className='text-3xl text-yellow-400'>🏆</div>
+                  <img
+                    src='/icons/fll_logo.png'
+                    alt='FLL'
+                    className='w-10 h-10'
+                  />
                 </div>
                 <div className='space-y-3'>
                   <p className='text-blue-200 text-sm'>
@@ -350,7 +485,11 @@ export default function CodingClass() {
                       <p className='text-blue-200 text-sm'>광운대 총장상</p>
                     </div>
                   </div>
-                  <div className='text-3xl text-yellow-400'>🤖</div>
+                  <img
+                    src='/icons/gwuniv.svg'
+                    alt='K-로봇대회'
+                    className='w-10 h-10'
+                  />
                 </div>
                 <div className='space-y-2'>
                   <p className='text-blue-200 text-sm'>라인트레이싱 부문</p>
@@ -371,7 +510,11 @@ export default function CodingClass() {
                       <p className='text-blue-200 text-sm'>1KG 부문 우승</p>
                     </div>
                   </div>
-                  <div className='text-3xl text-yellow-400'>🥇</div>
+                  <img
+                    src='/icons/robotex_logo.png'
+                    alt='ROBOTEX ASIA'
+                    className='w-10 h-10'
+                  />
                 </div>
                 <div className='space-y-2'>
                   <p className='text-blue-200 font-semibold'>채O영</p>
@@ -391,7 +534,11 @@ export default function CodingClass() {
                       <p className='text-blue-200 text-sm'>3KG 부문 우승</p>
                     </div>
                   </div>
-                  <div className='text-3xl text-yellow-400'>🥇</div>
+                  <img
+                    src='/icons/robotex_logo.png'
+                    alt='ROBOTEX ASIA'
+                    className='w-10 h-10'
+                  />
                 </div>
                 <div className='space-y-2'>
                   <p className='text-blue-200 text-sm'>김O구 · 최O원</p>
@@ -431,7 +578,7 @@ export default function CodingClass() {
           className='block w-full bg-blue-700 text-white text-center font-bold py-4 px-6 rounded-lg 
                      hover:bg-blue-800 active:transform active:translate-y-0.5 
                      transition-all duration-150
-                     md:inline-block md:w-[240px] md:text-lg'
+                     md:inline-block md:w-[240px] md:mb-20 md:text-lg'
         >
           체험수업 신청하기
         </button>
