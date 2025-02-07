@@ -199,29 +199,12 @@ button:focus-visible {
   animation: fade-in-out 2s ease-in-out forwards;
 }
 
-/* 확대/축소 방지를 위한 스타일 수정 */
-html,
-body,
 #root {
-  touch-action: none;
-  -ms-touch-action: none;
-  overflow: hidden;
-  overscroll-behavior: none;
   width: 100%;
-  height: 100vh; /* 100%에서 100vh로 변경 */
-  margin: 0;
-  padding: 0;
+  height: 100%;
 }
 
-#root {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-/* 더블 탭 줌 방지 */
+/* 더블 탭 줌만 방지 */
 * {
   touch-action: manipulation;
 }

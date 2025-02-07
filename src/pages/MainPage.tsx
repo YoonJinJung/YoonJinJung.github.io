@@ -15,6 +15,12 @@ export default function MainPage() {
           2살 하태율
         </Button>
       </Link>
+
+      <Link to='/coding'>
+        <Button className='bg-teal-300 text-[20px] px-10 py-10 hover:bg-neutral-500'>
+          코딩 클래스
+        </Button>
+      </Link>
     </div>
   );
 }
